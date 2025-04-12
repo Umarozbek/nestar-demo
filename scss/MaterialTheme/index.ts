@@ -1,11 +1,12 @@
 import { common } from "@mui/material/colors";
 import shadow from "./shadow";
 import typography from "./typography";
+import { ThemeOptions } from "@mui/material";
 
 /**
  * LIGHT THEME (DEFAULT)
  */
-export const light = {
+export const light: ThemeOptions = {
   palette: {
     type: "light",
     background: {

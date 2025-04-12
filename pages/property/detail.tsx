@@ -1,9 +1,14 @@
-
 import withLayoutBasic from "@/libs/components/LayoutBasic";
-import { Container, Stack } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 
 const PropertyDetail = () => {
-  return <Container>PROPERTY DETAIL</Container>;
+  console.log("PropertyDetail page");
+
+  return (
+    <>
+      <Container>Property Detail</Container>
+    </>
+  );
 };
 
 export default withLayoutBasic(PropertyDetail);
