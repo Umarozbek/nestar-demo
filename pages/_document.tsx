@@ -14,6 +14,8 @@ export default function Document() {
           name="keyword"
           content={"nestar, nestar.uz, devex mern, mern nestjs fullstack"}
         />
+
+        {/* SEO - Search angine optomization*/}
         <meta
           name="description"
           content={
@@ -29,3 +31,14 @@ export default function Document() {
     </Html>
   );
 }
+
+/*
+_document.tsx 
+1. as Searching Engine Optimization uchun yordamga keladi.
+2. metadate lar yaratish uchun ishlatladi
+
+
+
+
+Metadata - link junatganda unga qoshilib content haqida malumot va properties
+ */
