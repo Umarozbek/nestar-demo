@@ -7,16 +7,15 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Container>
+      <Stack>
         <Stack flexDirection={"column"}>
-          <Box>Popular Properties</Box>
-          <Box>Top agents</Box>
-          <Box>Top Properties</Box>
-          <Box>Events</Box>
+          <Box className="container">Popular Properties</Box>
+          <Box className="container">Top agents</Box>
+          <Box className="container">Top Properties</Box>
+          <Box className="container">Events</Box>
         </Stack>
-      </Container>
+      </Stack>
     </>
   );
 };
-
 export default withLayoutMain(Home);

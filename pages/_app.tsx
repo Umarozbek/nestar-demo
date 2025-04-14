@@ -3,6 +3,9 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import { useState } from "react";
 import { light } from "../scss/MaterialTheme/index";
+import "../scss/app.scss";
+
+
 export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState(createTheme(light));
   console.log("app.tsx");
