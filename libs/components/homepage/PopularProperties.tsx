@@ -1,59 +1,59 @@
-import { Box, Stack } from "@mui/material";
-import Link from "next/link";
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import PopularPropertyCard from "./PopularPropertyCard";
+import React from "react";
+import { Box, Divider, Stack, Typography } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
-const PopularProperties = ({ initialInput, ...props }: any) => {
-  const [popularProperties, setPopularProperties] =
-    useState<number[]>(initialInput);
-
+const PopularPropertyCard = () => {
   return (
-    <Stack className={"popular-properties"}>
-      <Stack className={"container"}>
-        <Stack className={"info-box"}>
-          <Box className={"left"}>
-            <span>Popular Properties</span>
-            <p>Popularity is based on views</p>
-          </Box>
-          <Box className={"right"}>
-            <div className={"more-box"}>
-              <Link href={"/property"}>
-                <span>See All Categories</span>
-              </Link>
-              <img src="/img/icons/rightup.svg" alt="" />
-            </div>
-          </Box>
-        </Stack>
-        <Stack className={"card-box"}>
-          <Swiper
-            className={"popular-property-swiper"}
-            slidesPerView={"auto"}
-            spaceBetween={25}
-            navigation={{
-              nextEl: ".swiper-popular-next",
-              prevEl: ".swiper-popular-prev",
-            }}
-            pagination={{
-              el: ".swiper-popular-pagination",
-            }}
-          >
-            {popularProperties.map((property, index) => {
-              return (
-                <SwiperSlide key={index} className={"popular-property-slide"}>
-                  <PopularPropertyCard />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </Stack>
-      </Stack>
+    <Stack className={"popular-card-box"}>
+      <Box
+        className={"card-img"}
+        style={{
+          backgroundImage: `url("/img/banner/types/apartment.webp")`,
+        }}
+      >
+        <div className={"status"}>
+          <img src="/img/icons/electricity.svg" alt="" />
+          <span>top</span>
+        </div>
+
+        <div className={"price"}>$520000</div>
+      </Box>
+      <Box className={"info"}>
+        <strong className={"title"}>Busan City Hall Apartments</strong>
+        <p className={"desc"}>Good Wills</p>
+        <div className={"options"}>
+          <div>
+            <img src="/img/icons/bed.svg" alt="" />
+            <span>3 beds</span>
+          </div>
+          <div>
+            <img src="/img/icons/room.svg" alt="" />
+            <span>7 rooms</span>
+          </div>
+          <div>
+            <img src="/img/icons/expand.svg" alt="" />
+            <span>2200 m2</span>
+          </div>
+        </div>
+        <Divider sx={{ mt: "15px", mb: "17px" }} />
+        <div className={"bott"}>
+          <p>Rent</p>
+          <div className={"view-like-box"}>
+            <IconButton color={"default"}>
+              <RemoveRedEyeIcon />
+            </IconButton>
+            <Typography className={"view-cnt"}>50</Typography>
+            <IconButton color={"default"}>
+              <FavoriteIcon style={{ color: "red" }} />
+            </IconButton>
+            <Typography className={"view-cnt"}>250</Typography>
+          </div>
+        </div>
+      </Box>
     </Stack>
   );
 };
 
-PopularProperties.defaultProps = {
-  initialInput: [1, 2, 3, 4, 5, 6, 7],
-};
-
-export default PopularProperties;
+export default PopularPropertyCard;
