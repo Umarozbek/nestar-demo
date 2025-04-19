@@ -1,18 +1,20 @@
 import withLayoutBasic from "@/libs/components/layout/LayoutBasic";
+import useDeviceDetect from "@/libs/hooks/useDeviceDetect";
 import { Box, Container, Stack } from "@mui/material";
 import { NextPage } from "next";
 import { useState } from "react";
 
 const AgentList: NextPage = () => {
-  console.log("AgentList page");
-
-  const [title, setTitle] = useState("hello");
-
+  const device = useDeviceDetect();
+  if (device === "mobile") {
+    return <Stack>AGENT Mobile</Stack>;
+  } else {
   return (
     <div style={{ margin: "20px 0" }}>
       <Stack className="container">Agents List</Stack>
     </div>
   );
+}
 };
 
 export default withLayoutBasic(AgentList);

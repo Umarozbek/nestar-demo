@@ -1,8 +1,33 @@
 import Link from "next/link";
 import { Logout } from "@mui/icons-material";
 import { Box, Menu, MenuItem, Stack } from "@mui/material";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 
 const Top = () => {
+  const device = useDeviceDetect();
+
+  if (device === "mobile") {
+    return (
+      <Stack className={"navbar"}>
+        <Link href={"/"}>
+          <div>Home</div>
+        </Link>
+        <Link href={"/property"}>
+          <div>Properties</div>
+        </Link>
+        <Link href={"/agent"}>
+          <div>Agents</div>
+        </Link>
+        <Link href={"/community"}>
+          <div>Community</div>
+        </Link>
+
+        <Link href={"/cs"}>
+          <div>CS</div>
+        </Link>
+      </Stack>
+    );
+  }
   return (
     <Stack className={"navbar"}>
       <Stack className={"navbar-main"}>
@@ -52,6 +77,7 @@ const Top = () => {
       </Stack>
     </Stack>
   );
+
 };
 
 export default Top;

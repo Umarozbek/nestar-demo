@@ -9,8 +9,15 @@ import withLayoutMain from "@/libs/components/layout/LayoutHome";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import useDeviceDetect from "@/libs/hooks/useDeviceDetect";
 
 const Home: NextPage = () => {
+   //DEVICE: MOVILE vs PC
+   const device = useDeviceDetect();
+   if (device === "mobile") {
+     return <Stack>Homepage Mobile</Stack>;
+   } else {
+    
   return (
     <Stack className={"home-page"}>
       <TrendProperties />
@@ -19,7 +26,10 @@ const Home: NextPage = () => {
       <TopProperties />
       <TopAgents />
     </Stack>
+   
   );
+}
+
 };
 
 export default withLayoutMain(Home);
