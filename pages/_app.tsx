@@ -6,6 +6,8 @@ import { light } from "../scss/MaterialTheme/index";
 import "../scss/app.scss";
 import "../scss/pc/main.scss"
 import "../scss/mobile/main.scss";
+import { ApolloProvider } from "@apollo/client";
+import client from "@/apollo/client";
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -18,11 +20,13 @@ App.tsx da quyidagi global integratsiyalar amalga oshadi.
 3. app routing global integration
 */
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeProvider>
-  );
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ApolloProvider>
+  ); //app qolgan page routing file larga jonatish mantiq
 }
 /* ̰
    Pages Routing                                      
